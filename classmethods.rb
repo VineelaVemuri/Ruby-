@@ -1,56 +1,51 @@
-#Ruby program to implement classes in Book
-class Book
-    attr_reader :title, :author, :publish_year
-  
-    def initialize(title, author, publish_year)
-    @title = title
-    @author = author
-    @publish_year = publish_year
-    end
+class CalculatorFunctions
+  def addNumbers(num1, num2)
+    @n1 = num1
+    @n2 = num2
+    @sum = @n1 + @n2
+    puts @sum
   end
-    def title
-    @title
-    end
-  
-    def author
-    @author
-    end
-  
-    def publish_year
-    @publish_year
+  def subtractNumbers(num1, num2)
+    @n1 = num1
+    @n2 = num2
+    @difference = @n1 - @n2
+    puts @difference
   end
-  book = Book.new("abc")
-  puts book.title + "some title" +
-       book.author+ "some author" +
-       book.publish_year + "some year" 
-
-
-#Ruby program to implement classes in calculator
-class Operator
-  def initialize(firstnumber,secondnumber)
-      @firstnumber = firstnumber
-      @secondnumber = secondnumber
+  def multiplyNumbers(num1, num2)
+    @n1 = num1
+    @n2 = num2
+    @product = @n1 * @n2
+    puts @product
+  end
+  def divideNumbers(num1, num2)
+    @n1 = num1
+    @n2 = num2
+    @quotient = @n1 / @n2
+    puts @quotient
   end
 end
 
-obj1 = Operator.new('num1', 'num2')
-obj1.firstnumber = 'num1'
-obj1.secondnumber = 'num2'
-p obj1.firstnumber #=> "num1"
-p obj1.secondnumber #=> "num2"
+calcFunctions = CalculatorFunctions.new
 
-#Addition
-puts ("Addition:")
-puts (num1 + num2)
+puts "Select a operator:\nType 'press 1' for Addition\nType 'press 2' for Subtraction\nType 'press 3' for Multiplication\nType 'press 4' for Division\nType 'press 5' for Exit"
+method = gets
 
-# Subtraction
-puts ("Subtraction:")
-puts (num1 - num2)
+puts "Enter the first number:"
+num1 = gets.to_i
 
-# Division
-puts ("Division:")
-puts (num1 / num2)
+puts "Enter the second number:"
+num2 = gets.to_i
 
-# Multiplication
-puts ("Multiplication:")
-puts (num1 * num2)
+if method == "add" or method == "Add"
+  calcFunctions.addNumbers(num1, num2)
+elsif method == "subtract" or method == "Subtract"
+  calcFunctions.subtractNumbers(num1, num2)
+elsif method == "multiply" or method == "Multiply"
+  calcFunctions.multiplyNumbers(num1, num2)
+elsif method == "divide" or method == "Divide"
+  calcFunctions.divideNumbers(num1, num2)
+elsif method == "Exit" or method == "Exit"
+  calcFunctions.Exit(Exit)
+else
+  puts "Exit"
+end
